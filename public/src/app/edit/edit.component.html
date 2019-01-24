@@ -1,0 +1,19 @@
+<div style="border:5px solid green;border-radius: 10px">
+  <h3>Edit Product</h3>
+  <hr>
+
+  <div *ngIf="updateErrors">
+    <p *ngIf="updateErrors.errors.title" style="color:red">{{updateErrors.errors.title.message}}</p>
+    <p *ngIf="updateErrors.errors.price" style="color:red">{{updateErrors.errors.price.message}}</p>
+  </div>
+
+  <form>
+    <label>Title</label>
+    <input type="text" [value]="myProduct.title" name="title" [(ngModel)]="myProduct.title" />
+    <label>Price</label>
+    <input type="number" [value]="myProduct.price" name="price" [(ngModel)]="myProduct.price" />
+    <label>Cake Image URL</label>
+    <input type="text" [value]="myProduct.imgUrl" name="imgUrl" [(ngModel)]="myProduct.imgUrl" />
+    <button (click)="updateProduct()">Update</button>
+  </form>
+</div>
